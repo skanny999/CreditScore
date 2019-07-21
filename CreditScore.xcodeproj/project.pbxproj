@@ -8,11 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		8BA7F00722E3629400B61B9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA7F00622E3629400B61B9E /* AppDelegate.swift */; };
-		8BA7F00922E3629400B61B9E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA7F00822E3629400B61B9E /* ViewController.swift */; };
+		8BA7F00922E3629400B61B9E /* CreditReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA7F00822E3629400B61B9E /* CreditReportViewController.swift */; };
 		8BA7F00C22E3629500B61B9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BA7F00A22E3629500B61B9E /* Main.storyboard */; };
 		8BA7F00E22E3629B00B61B9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BA7F00D22E3629B00B61B9E /* Assets.xcassets */; };
 		8BA7F01122E3629B00B61B9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BA7F00F22E3629B00B61B9E /* LaunchScreen.storyboard */; };
-		8BA7F01C22E3629B00B61B9E /* CreditScoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA7F01B22E3629B00B61B9E /* CreditScoreTests.swift */; };
+		8BA7F01C22E3629B00B61B9E /* CreditReportViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA7F01B22E3629B00B61B9E /* CreditReportViewModelTest.swift */; };
+		8BA7F02A22E3646000B61B9E /* Model.json in Resources */ = {isa = PBXBuildFile; fileRef = 8BA7F02922E3646000B61B9E /* Model.json */; };
+		8BA7F02C22E364B300B61B9E /* CreditReportTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA7F02B22E364B300B61B9E /* CreditReportTest.swift */; };
+		8BA7F02E22E364C600B61B9E /* CreditReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA7F02D22E364C600B61B9E /* CreditReport.swift */; };
+		8BA7F03122E3669E00B61B9E /* DataProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA7F03022E3669E00B61B9E /* DataProcessor.swift */; };
+		8BA7F03422E366DF00B61B9E /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA7F03322E366DF00B61B9E /* Errors.swift */; };
+		8BA7F03622E3743E00B61B9E /* FileExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA7F03522E3743E00B61B9E /* FileExtractor.swift */; };
+		8BA7F03822E3770B00B61B9E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA7F03722E3770B00B61B9E /* NetworkManager.swift */; };
+		8BA7F03A22E3808900B61B9E /* CreditReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA7F03922E3808900B61B9E /* CreditReportViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,14 +36,22 @@
 /* Begin PBXFileReference section */
 		8BA7F00322E3629400B61B9E /* CreditScore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CreditScore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BA7F00622E3629400B61B9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8BA7F00822E3629400B61B9E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8BA7F00822E3629400B61B9E /* CreditReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditReportViewController.swift; sourceTree = "<group>"; };
 		8BA7F00B22E3629500B61B9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8BA7F00D22E3629B00B61B9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BA7F01022E3629B00B61B9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8BA7F01222E3629B00B61B9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BA7F01722E3629B00B61B9E /* CreditScoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CreditScoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8BA7F01B22E3629B00B61B9E /* CreditScoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditScoreTests.swift; sourceTree = "<group>"; };
+		8BA7F01B22E3629B00B61B9E /* CreditReportViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditReportViewModelTest.swift; sourceTree = "<group>"; };
 		8BA7F01D22E3629B00B61B9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BA7F02922E3646000B61B9E /* Model.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Model.json; sourceTree = "<group>"; };
+		8BA7F02B22E364B300B61B9E /* CreditReportTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditReportTest.swift; sourceTree = "<group>"; };
+		8BA7F02D22E364C600B61B9E /* CreditReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditReport.swift; sourceTree = "<group>"; };
+		8BA7F03022E3669E00B61B9E /* DataProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProcessor.swift; sourceTree = "<group>"; };
+		8BA7F03322E366DF00B61B9E /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		8BA7F03522E3743E00B61B9E /* FileExtractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileExtractor.swift; sourceTree = "<group>"; };
+		8BA7F03722E3770B00B61B9E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		8BA7F03922E3808900B61B9E /* CreditReportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditReportViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,12 +93,16 @@
 		8BA7F00522E3629400B61B9E /* CreditScore */ = {
 			isa = PBXGroup;
 			children = (
+				8BA7F03322E366DF00B61B9E /* Errors.swift */,
 				8BA7F00622E3629400B61B9E /* AppDelegate.swift */,
-				8BA7F00822E3629400B61B9E /* ViewController.swift */,
+				8BA7F00822E3629400B61B9E /* CreditReportViewController.swift */,
+				8BA7F03922E3808900B61B9E /* CreditReportViewModel.swift */,
 				8BA7F00A22E3629500B61B9E /* Main.storyboard */,
 				8BA7F00D22E3629B00B61B9E /* Assets.xcassets */,
 				8BA7F00F22E3629B00B61B9E /* LaunchScreen.storyboard */,
 				8BA7F01222E3629B00B61B9E /* Info.plist */,
+				8BA7F02F22E364CF00B61B9E /* Model */,
+				8BA7F03222E366A900B61B9E /* Services */,
 			);
 			path = CreditScore;
 			sourceTree = "<group>";
@@ -90,10 +110,30 @@
 		8BA7F01A22E3629B00B61B9E /* CreditScoreTests */ = {
 			isa = PBXGroup;
 			children = (
-				8BA7F01B22E3629B00B61B9E /* CreditScoreTests.swift */,
+				8BA7F03522E3743E00B61B9E /* FileExtractor.swift */,
+				8BA7F02922E3646000B61B9E /* Model.json */,
+				8BA7F01B22E3629B00B61B9E /* CreditReportViewModelTest.swift */,
 				8BA7F01D22E3629B00B61B9E /* Info.plist */,
+				8BA7F02B22E364B300B61B9E /* CreditReportTest.swift */,
 			);
 			path = CreditScoreTests;
+			sourceTree = "<group>";
+		};
+		8BA7F02F22E364CF00B61B9E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8BA7F02D22E364C600B61B9E /* CreditReport.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8BA7F03222E366A900B61B9E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8BA7F03022E3669E00B61B9E /* DataProcessor.swift */,
+				8BA7F03722E3770B00B61B9E /* NetworkManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,6 +227,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BA7F02A22E3646000B61B9E /* Model.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,8 +238,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BA7F00922E3629400B61B9E /* ViewController.swift in Sources */,
+				8BA7F03822E3770B00B61B9E /* NetworkManager.swift in Sources */,
+				8BA7F03122E3669E00B61B9E /* DataProcessor.swift in Sources */,
+				8BA7F03422E366DF00B61B9E /* Errors.swift in Sources */,
+				8BA7F00922E3629400B61B9E /* CreditReportViewController.swift in Sources */,
+				8BA7F02E22E364C600B61B9E /* CreditReport.swift in Sources */,
 				8BA7F00722E3629400B61B9E /* AppDelegate.swift in Sources */,
+				8BA7F03A22E3808900B61B9E /* CreditReportViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,7 +252,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BA7F01C22E3629B00B61B9E /* CreditScoreTests.swift in Sources */,
+				8BA7F03622E3743E00B61B9E /* FileExtractor.swift in Sources */,
+				8BA7F02C22E364B300B61B9E /* CreditReportTest.swift in Sources */,
+				8BA7F01C22E3629B00B61B9E /* CreditReportViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
