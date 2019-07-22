@@ -13,7 +13,7 @@ class CreditReportViewController: UIViewController {
     var viewModel = CreditReportViewModel()
     
     let shapeLayer = CAShapeLayer()
-    let displayLink = CADisplayLink(target: self, selector: #selector(updateScoreCounter))
+    var displayLink: CADisplayLink?
     let animationDuration: Double = 1
     var animationStart: Date!
 
@@ -25,7 +25,7 @@ class CreditReportViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureInitialView()
+        configureDonut()
         configureViewUpdater()
         self.title = "Dashboard"
     }
@@ -43,27 +43,31 @@ class CreditReportViewController: UIViewController {
         }
     }
     
-    private func configureInitialView() {
+    private func configureDonut() {
         
+        // draw outer circle
+        let outerCircleRadius = reportView.bounds.width / 2
         reportView.layer.cornerRadius = reportView.bounds.width / 2
         reportView.layer.borderWidth = 1
         reportView.layer.borderColor = UIColor.black.cgColor
-
-        let radius = (reportView.bounds.width / 2) - 5
         
-        let circularPath = UIBezierPath(arcCenter: reportView.center,
-                                        radius: radius,
+        // create inner circle progress line
+        let innerProgressLineIndentation = CGFloat(5.0)
+        let progressLineRadius = outerCircleRadius - innerProgressLineIndentation
+        let circleCentre = CGPoint(x: reportView.frame.height/2, y: reportView.frame.width/2)
+        let circularPath = UIBezierPath(arcCenter: circleCentre,
+                                        radius: progressLineRadius,
                                         startAngle: -CGFloat.pi / 2,
                                         endAngle: 1.5 * CGFloat.pi,
                                         clockwise: true)
-        
         shapeLayer.path = circularPath.cgPath
         shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.strokeColor = UIColor.orange.cgColor
         shapeLayer.lineWidth = 5
         shapeLayer.lineCap = .round
         shapeLayer.strokeEnd = 0
-        view.layer.addSublayer(shapeLayer)
+        reportView.layer.addSublayer(shapeLayer)
+
     }
     
     private func updateView() {
@@ -71,17 +75,16 @@ class CreditReportViewController: UIViewController {
         DispatchQueue.main.async { [weak self] in
             
             self?.updateLabels()
-            self?.animateCircle()
+            self?.animateInnerCircleProgressLine()
         }
     }
     
     private func showAlert(for error: CreditScoreError) {
         
-        let alertController = UIAlertController(title: "There was a problem", message: error.userDescription, preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Error", message: error.userDescription, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
         present(alertController, animated: true, completion: nil)
     }
-    
 }
 
 
@@ -99,34 +102,32 @@ private extension CreditReportViewController {
     func updateScoreLabel() {
         
         animationStart = Date()
-        let displayLink = CADisplayLink(target: self, selector: #selector(updateScoreCounter))
-        displayLink.add(to: .main, forMode: .default)
+        displayLink = CADisplayLink(target: self, selector: #selector(increaseScoreCounter))
+        displayLink?.add(to: .main, forMode: .default)
     }
     
-    func animateCircle() {
+    @objc func increaseScoreCounter() {
+        
+        let elapsedTime = Date().timeIntervalSince(animationStart)
+        
+        if elapsedTime > animationDuration {
+            userScoreLabel.text = String(viewModel.userScore)
+            displayLink?.invalidate()
+        } else {
+            let elapsedPercentage = elapsedTime / animationDuration
+            let elapsedValue = Int(elapsedPercentage * Double(viewModel.userScore))
+            userScoreLabel.text = String(elapsedValue)
+        }
+    }
+    
+    func animateInnerCircleProgressLine() {
         
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
         basicAnimation.toValue = CGFloat(viewModel.valuePercentage)
         basicAnimation.duration = animationDuration
         basicAnimation.fillMode = .forwards
         basicAnimation.isRemovedOnCompletion = false
-        shapeLayer.add(basicAnimation, forKey: "pie")
-    }
-    
-    @objc func updateScoreCounter() {
-        
-        let elapsedTime = Date().timeIntervalSince(animationStart)
-        
-        if elapsedTime > animationDuration {
-            
-            userScoreLabel.text = String(viewModel.userScore)
-            
-        } else {
-            
-            let percentage = elapsedTime / animationDuration
-            let value = Int(percentage * Double(viewModel.userScore))
-            userScoreLabel.text = String(value)
-        }
+        shapeLayer.add(basicAnimation, forKey: "progressLine")
     }
 }
 

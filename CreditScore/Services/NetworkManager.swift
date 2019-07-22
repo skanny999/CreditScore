@@ -24,14 +24,17 @@ class NetworkManager {
                 return
             }
             
-            if let response = response as? HTTPURLResponse {
+            guard let response  = response as? HTTPURLResponse else {
+                completion(nil, CreditScoreError.networkCallFailed(nil))
+                return
+            }
+            
+            if  response.statusCode == 200 {
+                completion(data, nil)
                 
-                if response.statusCode != 200 {
-                    let error = NSError(domain: response.debugDescription, code: response.statusCode, userInfo: nil)
-                    completion(nil, CreditScoreError.networkCallFailed(error))
-                } else {
-                    completion(data, nil)
-                }
+            } else {
+                let error = NSError(domain: response.debugDescription, code: response.statusCode, userInfo: nil)
+                completion(nil, CreditScoreError.networkCallFailed(error))
             }
         }
         
